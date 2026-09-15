@@ -51,8 +51,12 @@ function decorateSearch(section) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // metadata-independent dual-fetch: /content first (localhost), then root (DA/EDS prod)
-  let fragment = await loadFragment('/content/nav');
+  // Load the header fragment. Try the site-local fragments folder first
+  // (content source layout), then fall back to the conventional root paths so
+  // it still resolves on localhost and DA/EDS production.
+  let fragment = await loadFragment('/content/us/en/fragments/header');
+  if (!fragment) fragment = await loadFragment('/us/en/fragments/header');
+  if (!fragment) fragment = await loadFragment('/content/nav');
   if (!fragment) fragment = await loadFragment('/nav');
   if (!fragment) return;
 

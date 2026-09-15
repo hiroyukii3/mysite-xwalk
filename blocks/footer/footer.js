@@ -6,8 +6,11 @@ import { loadFragment } from '../fragment/fragment.js';
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  // metadata-independent dual-fetch: /content first (localhost), then root (DA/EDS prod)
-  let fragment = await loadFragment('/content/footer');
+  // Load the footer fragment. Try the site-local fragments folder first, then
+  // fall back to the conventional root paths (localhost + DA/EDS production).
+  let fragment = await loadFragment('/content/us/en/fragments/footer');
+  if (!fragment) fragment = await loadFragment('/us/en/fragments/footer');
+  if (!fragment) fragment = await loadFragment('/content/footer');
   if (!fragment) fragment = await loadFragment('/footer');
   if (!fragment) return;
 
