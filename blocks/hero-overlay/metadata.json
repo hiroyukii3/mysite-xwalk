@@ -1,0 +1,13 @@
+{
+  "variantName": "hero-overlay",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Full-bleed background photograph with an opaque white content card overlaid at the lower-left, containing a heading, a paragraph of descriptive text, and a call-to-action button.",
+  "contentPattern": "One background image cell plus one content cell (heading + description + CTA link).",
+  "options": [],
+  "memberVariantIds": ["hero-overlay"],
+  "usage": {
+    "pagesFound": ["https://wknd.site/us/en.html"],
+    "count": 1
+  }
+}

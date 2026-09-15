@@ -1,0 +1,63 @@
+/* hero-overlay: full-bleed background image with an overlaid content card.
+   Structural/functional layout only — brand color/typography left to the
+   design pass. */
+
+.hero-overlay-container .hero-overlay-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-overlay {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 360px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* background image fills the block */
+.hero-overlay .hero-overlay-image {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  margin: 0;
+}
+
+.hero-overlay .hero-overlay-image picture,
+.hero-overlay .hero-overlay-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* overlaid content card, anchored to the lower-left on larger screens */
+.hero-overlay .hero-overlay-content {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 24px;
+  background-color: var(--background-color, #fff);
+}
+
+.hero-overlay .hero-overlay-content > * {
+  margin: 0 0 12px;
+}
+
+.hero-overlay .hero-overlay-content > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (width >= 900px) {
+  .hero-overlay {
+    min-height: 480px;
+    padding: 48px;
+  }
+
+  .hero-overlay .hero-overlay-content {
+    width: auto;
+    max-width: 640px;
+    padding: 32px 40px;
+  }
+}
