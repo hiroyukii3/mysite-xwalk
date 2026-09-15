@@ -1,0 +1,20 @@
+{
+  "type": "xwalk",
+  "sites": {
+    "mysite-xwalk": {
+      "previewOrg": "hiroyukii3",
+      "previewSite": "mysite-xwalk",
+      "contentHostUrl": "author-p130360-e1272151.adobeaemcloud.com"
+    },
+    "wknd": {
+      "previewOrg": "hiroyukii3",
+      "previewSite": "wknd",
+      "contentHostUrl": "author-p152227-e1858758.adobeaemcloud.com",
+      "aemSitePath": "/content/wknd",
+      "aemAssetsFolderPath": "/content/dam/wknd",
+      "aemSiteName": "wknd",
+      "aemSiteTitle": "WKND",
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

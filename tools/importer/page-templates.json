@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://wknd.site/us/en.html"
+      ],
+      "representativeUrl": "https://wknd.site/us/en.html",
+      "description": "WKND home page: hero carousel, featured article, article card grids, and an overlay hero.",
+      "urlPattern": "/us/*",
+      "blocks": [
+        {
+          "name": "carousel-hero",
+          "instances": [".carousel.cmp-carousel--hero"]
+        },
+        {
+          "name": "featured-article",
+          "instances": [".teaser.cmp-teaser--featured"]
+        },
+        {
+          "name": "cards-article",
+          "instances": [".image-list.list"]
+        },
+        {
+          "name": "hero-overlay",
+          "instances": [".teaser.cmp-teaser--hero.cmp-teaser--imagebottom"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "hero-carousel",
+          "selector": [".carousel.cmp-carousel--hero"],
+          "style": null,
+          "blocks": ["carousel-hero"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc2c1",
+          "name": "featured-article",
+          "selector": [".teaser.cmp-teaser--featured"],
+          "style": null,
+          "blocks": ["featured-article"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc2c3",
+          "name": "recent-articles",
+          "selector": [".cmp-layout-container--fixed:nth-of-type(1)", ".image-list.list"],
+          "style": null,
+          "blocks": ["cards-article"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "climbing-hero-overlay",
+          "selector": [".teaser.cmp-teaser--hero.cmp-teaser--imagebottom"],
+          "style": null,
+          "blocks": ["hero-overlay"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc4c2",
+          "name": "where-to-go",
+          "selector": [".cmp-layout-container--fixed:nth-of-type(2)", ".image-list.list"],
+          "style": null,
+          "blocks": ["cards-article"],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}
