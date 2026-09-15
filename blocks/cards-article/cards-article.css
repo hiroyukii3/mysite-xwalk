@@ -1,0 +1,100 @@
+/*
+ * cards-article — 4-column grid of article cards
+ * Design migrated from https://wknd.site/us/en.html (.image-list.list)
+ * All selectors scoped to .cards-article so the base cards block is untouched.
+ */
+
+/* ===== Grid ===== */
+.cards-article > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gap-xl) 14px; /* row 32px, column 14px */
+}
+
+/* borderless, transparent cards */
+.cards-article > ul > li {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 0;
+}
+
+/* ===== Image region ===== */
+.cards-article .cards-card-image {
+  line-height: 0;
+}
+
+/* image inside <p> (EDS wraps bare <img> in <p>) */
+.cards-article .cards-card-image p {
+  margin: 0;
+  line-height: 0;
+}
+
+.cards-article .cards-card-image picture {
+  display: block;
+}
+
+.cards-article > ul > li img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 13 / 10; /* source 260 x 200 */
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* ===== Text region ===== */
+.cards-article .cards-card-body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* UPPERCASE title — Source Sans Pro (NOT the serif heading font) */
+.cards-article .cards-card-body h3 {
+  margin: 9px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.cards-article .cards-card-body h3 a:any-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* grey description — uppercase, single line with ellipsis (matches source) */
+.cards-article .cards-card-body p {
+  margin: var(--gap-md) 0 0; /* 16px */
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: var(--text-color-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== Responsive: 1 -> 2 -> 4 columns ===== */
+@media (width >= 600px) {
+  .cards-article > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  .cards-article > ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

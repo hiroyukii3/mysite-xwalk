@@ -1,0 +1,225 @@
+/* stylelint-disable no-descending-specificity */
+
+/* ---------------------------------------------------------------------------
+ * carousel-hero — full-bleed rotating slideshow.
+ * Each slide: full-bleed background photo + white content card overlaid at the
+ * bottom, containing an Asar H2, a description, and a yellow CTA button.
+ * Dot indicators centered below; circular prev/next arrows at bottom-right.
+ * Values extracted from https://wknd.site/us/en.html computed styles.
+ * ------------------------------------------------------------------------- */
+
+.carousel-hero {
+  color: var(--text-color);
+}
+
+/* Full-bleed: break out of the section's centered 1200px container. */
+main .section .carousel-hero-wrapper {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-hero .carousel-hero-slides-container {
+  position: relative;
+}
+
+.carousel-hero .carousel-hero-slides,
+.carousel-hero .carousel-hero-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-hero .carousel-hero-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-hero .carousel-hero-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- SLIDE: full-bleed background photo with content overlaid at the bottom --- */
+.carousel-hero .carousel-hero-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-image {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-image picture {
+  position: absolute;
+  inset: 0;
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-image picture > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* --- WHITE CONTENT CARD --- */
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-content {
+  z-index: 1;
+  position: relative;
+  margin: 0;
+  padding: 24px 20px;
+  width: 100%;
+  background-color: var(--background-color);
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-content h2 {
+  margin: 0 0 12px;
+  color: var(--text-color);
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-content p {
+  margin: 0;
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  line-height: 1.75;
+}
+
+/* CTA button — the source link is a plain <p><a> (not auto-decorated),
+   so recreate the flat yellow WKND button here. */
+.carousel-hero .carousel-hero-slide-content p:last-child {
+  margin-top: 18px;
+}
+
+.carousel-hero .carousel-hero-slide-content p:last-child a:any-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--accent-color);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  line-height: 1.25;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: var(--accent-color);
+  color: var(--dark-color);
+  transition: var(--button-transition);
+}
+
+.carousel-hero .carousel-hero-slide-content p:last-child a:hover,
+.carousel-hero .carousel-hero-slide-content p:last-child a:focus-visible {
+  background-color: #ffd500;
+  border-color: #ffd500;
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+/* --- DOT INDICATORS (centered, below the slides) --- */
+.carousel-hero .carousel-hero-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 14px;
+  margin: 9px 0 0;
+  padding: 12px;
+  line-height: 0;
+}
+
+.carousel-hero .carousel-hero-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  background-color: rgb(175 175 175);
+  transition: background-color 0.2s;
+}
+
+.carousel-hero .carousel-hero-slide-indicator button:disabled,
+.carousel-hero .carousel-hero-slide-indicator button:hover,
+.carousel-hero .carousel-hero-slide-indicator button:focus-visible {
+  background-color: rgb(0 0 0 / 80%);
+}
+
+/* --- CIRCULAR PREV / NEXT ARROWS (bottom-right, over the image) --- */
+.carousel-hero .carousel-hero-navigation-buttons {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1;
+}
+
+.carousel-hero .carousel-hero-navigation-buttons button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  border-radius: 50%;
+  padding: 0;
+  background-color: rgb(255 255 255 / 70%);
+  transition: background-color 0.2s;
+}
+
+.carousel-hero .carousel-hero-navigation-buttons button:hover,
+.carousel-hero .carousel-hero-navigation-buttons button:focus-visible {
+  background-color: rgb(255 255 255 / 95%);
+}
+
+.carousel-hero .carousel-hero-navigation-buttons button::after {
+  display: block;
+  content: '';
+  border: 2px solid var(--text-color);
+  border-bottom: 0;
+  border-left: 0;
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-hero .carousel-hero-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: calc(50% - 2px);
+}
+
+/* --- DESKTOP: taller image, inset centered content band overlapping bottom --- */
+@media (width >= 900px) {
+  .carousel-hero .carousel-hero-slide {
+    min-height: 640px;
+  }
+
+  .carousel-hero .carousel-hero-slide .carousel-hero-slide-content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 28px 28px;
+  }
+
+  .carousel-hero .carousel-hero-slide .carousel-hero-slide-content h2 {
+    margin: 18px 0 0;
+  }
+
+  .carousel-hero .carousel-hero-navigation-buttons {
+    right: 24px;
+    bottom: 24px;
+  }
+}

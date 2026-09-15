@@ -1,0 +1,10 @@
+{
+  "variantName": "carousel-hero",
+  "baseBlock": "carousel",
+  "visualCharacteristics": "Full-bleed rotating hero slideshow. Each slide fills the viewport width with a background photo. An overlaid white content card sits at the bottom-left containing a heading, description, and one CTA link. Dot indicators are centered below the slides; circular prev/next arrows sit at the bottom-right.",
+  "contentPattern": "One row per slide. Each row has two cells: the first cell is the slide background image, the second cell holds the text content (heading, description paragraph, and a CTA link).",
+  "usage": "Full-width homepage or landing hero carousel presenting multiple rotating promotional slides, each with its own imagery and call to action.",
+  "canonicalModel": "standalone",
+  "options": [],
+  "memberVariantIds": ["carousel-hero"]
+}
