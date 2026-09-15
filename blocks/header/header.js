@@ -54,8 +54,8 @@ export default async function decorate(block) {
   // Load the header fragment. Try the site-local fragments folder first
   // (content source layout), then fall back to the conventional root paths so
   // it still resolves on localhost and DA/EDS production.
-  let fragment = await loadFragment('/content/us/en/fragments/header');
-  if (!fragment) fragment = await loadFragment('/us/en/fragments/header');
+  let fragment = await loadFragment('/content/us/fragments/header');
+  if (!fragment) fragment = await loadFragment('/us/fragments/header');
   if (!fragment) fragment = await loadFragment('/content/nav');
   if (!fragment) fragment = await loadFragment('/nav');
   if (!fragment) return;

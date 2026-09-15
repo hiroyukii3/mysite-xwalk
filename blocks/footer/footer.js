@@ -8,8 +8,8 @@ import { loadFragment } from '../fragment/fragment.js';
 export default async function decorate(block) {
   // Load the footer fragment. Try the site-local fragments folder first, then
   // fall back to the conventional root paths (localhost + DA/EDS production).
-  let fragment = await loadFragment('/content/us/en/fragments/footer');
-  if (!fragment) fragment = await loadFragment('/us/en/fragments/footer');
+  let fragment = await loadFragment('/content/us/fragments/footer');
+  if (!fragment) fragment = await loadFragment('/us/fragments/footer');
   if (!fragment) fragment = await loadFragment('/content/footer');
   if (!fragment) fragment = await loadFragment('/footer');
   if (!fragment) return;
