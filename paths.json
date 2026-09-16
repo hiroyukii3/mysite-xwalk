@@ -1,8 +1,10 @@
 {
   "mappings": [
-    "/content/aem-boilerplate/:/"
+    "/content/mysite-xwalk/:/mysite-xwalk/",
+    "/content/wknd/:/wknd/"
   ],
   "includes": [
-    "/content/aem-boilerplate/"
+    "/content/mysite-xwalk/",
+    "/content/wknd/"
   ]
 }
